@@ -30,7 +30,7 @@ script:
   - docker-compose exec webapp yarn run lint
   - docker-compose exec webapp yarn run test --ci
   - docker-compose exec -d backend yarn run test:cypress
-  - ./scripts/run_cypress_tests.sh
+  - yarn run cypress:run --record --key $CYPRESS_TOKEN
 
 after_success:
   - wget https://raw.githubusercontent.com/DiscordHooks/travis-ci-discord-webhook/master/send.sh
